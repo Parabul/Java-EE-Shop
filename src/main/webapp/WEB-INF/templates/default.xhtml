@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Java EE Task</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="css/bootstrap.css" />
+
+	<h:outputStylesheet name="css/bootstrap-theme.min.css" />
+	<h:outputStylesheet name="css/screen.css" />
+	<h:outputScript name="js/jquery-1.11.3.min.js" />
+	<h:outputScript name="js/bootstrap.min.js" />
+
+</h:head>
+<h:body>
+<!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">           
+            <a class="navbar-brand" href="#{request.contextPath}/">Java EE | Shop</a>
+          </div>
+          <div id="navbar">
+           	<ul class="nav navbar-nav">
+              <li ><a href="#{request.contextPath}/">Products</a></li>
+              
+            </ul>
+           	
+            <ul class="nav navbar-nav navbar-right">
+              <li ><a href="#{request.contextPath}/order.jsf"><span class="glyphicon glyphicon-shopping-cart"></span> #{orderInfo.orderItems.size()} items in cart | Total amount: #{orderInfo.orderItems.stream().map(item->item.product.price).sum()} | Checkout order</a></li>
+             
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<ui:insert name="content">
+
+				</ui:insert>
+			</div>
+		</div>
+
+		<hr />
+
+		<footer>
+		
+		</footer>
+	</div>
+	<!-- /container -->
+
+</h:body>
+</html>
